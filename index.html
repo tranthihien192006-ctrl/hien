@@ -3,231 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>專業簡介 | 阮黃秋賢</title>
+    <title>陳氏賢 | 個人專業檔案</title>
     <style>
-        /* 基礎設定：還原 LinkedIn 經典灰底與字體 */
+        :root {
+            --linkedin-blue: #0a66c2;
+            --bg-gray: #f3f2ef;
+            --text-main: rgba(0,0,0,0.9);
+            --text-sub: rgba(0,0,0,0.6);
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f3f2ef;
-            color: rgba(0, 0, 0, 0.9);
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-main);
             margin: 0;
-            padding: 20px 0;
+            padding: 0;
             line-height: 1.5;
         }
 
         .container {
-            max-width: 784px; /* LinkedIn 標準置中寬度 */
-            margin: 0 auto;
-            padding: 0 16px;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 10px;
         }
 
-        /* 卡片共用樣式 */
         .card {
-            background-color: #ffffff;
+            background: var(--white);
             border-radius: 8px;
-            border: 1px solid #dadce0;
+            border: 1px solid var(--border);
             margin-bottom: 12px;
             overflow: hidden;
         }
 
-        .card-content {
-            padding: 24px;
+        .header-banner {
+            height: 160px;
+            background: linear-gradient(135deg, #a0b4b7 0%, #0a66c2 100%);
         }
 
-        /* 第一張卡片：封面與個人基本資料 */
-        .banner {
-            width: 100%;
-            height: 200px;
-            background-color: #a0b4b7;
-            /* 建議替換為您的專業背景圖 */
-            background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .profile-section {
-            padding: 0 24px 24px 24px;
+        .profile-header {
+            padding: 0 24px 24px;
             position: relative;
+        }
+
+        .profile-pic-wrapper {
+            margin-top: -85px;
+            margin-bottom: 16px;
         }
 
         .profile-pic {
             width: 152px;
             height: 152px;
             border-radius: 50%;
-            border: 4px solid #ffffff;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.1); /* 增加邊緣立體感 */
+            border: 4px solid var(--white);
+            background-color: #f0f0f0;
             object-fit: cover;
-            position: relative;
-            margin-top: -112px; /* 經典 LinkedIn 左側重疊排版 */
-            background-color: #ffffff;
-            display: block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .name {
+        .profile-info h1 {
             font-size: 24px;
+            margin: 0 0 4px 0;
             font-weight: 600;
-            margin: 16px 0 4px 0;
-            color: rgba(0, 0, 0, 0.9);
         }
 
         .headline {
             font-size: 16px;
-            margin: 0 0 8px 0;
-            color: rgba(0, 0, 0, 0.9);
+            color: var(--text-main);
+            margin-bottom: 8px;
         }
 
         .location {
             font-size: 14px;
-            color: rgba(0, 0, 0, 0.6);
-            margin-bottom: 16px;
+            color: var(--text-sub);
+            margin-bottom: 12px;
         }
 
-        /* 區塊標題 */
-        h2 {
+        .btn-contact {
+            background-color: var(--linkedin-blue);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn-contact:hover {
+            background-color: #004182;
+        }
+
+        .section-title {
+            padding: 20px 24px 0;
             font-size: 20px;
             font-weight: 600;
-            margin: 0 0 16px 0;
-            color: rgba(0, 0, 0, 0.9);
         }
 
-        /* 經歷與教育列表 */
-        .list-item {
-            display: flex;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #ebebeb;
+        .content-body {
+            padding: 12px 24px 24px;
         }
 
-        .list-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .item {
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item:last-child {
             border-bottom: none;
         }
 
-        /* 模擬公司 Logo 區塊 */
-        .logo-placeholder {
-            width: 48px;
-            height: 48px;
-            background-color: #f3f2ef;
-            margin-right: 16px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #666;
-        }
-
-        .item-details h3 {
+        .item-title {
+            font-weight: 600;
             font-size: 16px;
+        }
+
+        .item-subtitle {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #e7f3ff;
+            color: var(--linkedin-blue);
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            margin: 4px;
             font-weight: 600;
-            margin: 0 0 2px 0;
-        }
-
-        .item-details .company {
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.9);
-            margin: 0 0 4px 0;
-        }
-
-        .item-details .date {
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.6);
-            margin: 0 0 8px 0;
-        }
-
-        .item-details .description {
-            font-size: 14px;
-            margin: 0;
-            color: rgba(0, 0, 0, 0.9);
-        }
-
-        /* 技能區塊 */
-        .skill-item {
-            font-size: 15px;
-            font-weight: 600;
-            padding: 12px 0;
-            border-bottom: 1px solid #ebebeb;
-        }
-        
-        .skill-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-
     <div class="card">
-        <div class="banner"></div>
-        <div class="profile-section">
-            <img src="您的個人相片路徑.jpg" alt="您的相片" class="profile-pic" onerror="this.src='https://via.placeholder.com/152';">
-            
-            <h1 class="name">您的姓名</h1>
-            <p class="headline">您的專業頭銜 | 核心專長領域</p>
-            <p class="location">台灣，新北市 • <a href="mailto:your.email@example.com" style="color: #0a66c2; text-decoration: none; font-weight: 600;">聯絡資訊</a></p>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-content">
-            <h2>關於</h2>
-            <p style="font-size: 14px; margin: 0;">在這裡輸入您的自我介紹。建議分成兩到三個簡短的段落：第一段說明您是誰、專長是什麼；第二段描述您最具代表性的成就；第三段說明您目前關注的領域或職涯目標。</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-content">
-            <h2>經歷</h2>
-            
-            <div class="list-item">
-                <div class="logo-placeholder">公司</div>
-                <div class="item-details">
-                    <h3>目前的職位名稱</h3>
-                    <p class="company">目前的公司名稱 · 全職</p>
-                    <p class="date">2023年 1月 – 至今</p>
-                    <p class="description">在此條列您的主要工作內容與量化成就。例如：優化了部門的標準作業流程，使整體效率提升了 20%。</p>
-                </div>
+        <div class="header-banner"></div>
+        <div class="profile-header">
+            <div class="profile-pic-wrapper">
+                <img src="https://via.placeholder.com/152" alt="陳氏賢的照片" class="profile-pic">
             </div>
-
-            <div class="list-item">
-                <div class="logo-placeholder">前司</div>
-                <div class="item-details">
-                    <h3>上一份工作的職位</h3>
-                    <p class="company">上一家公司名稱</p>
-                    <p class="date">2020年 6月 – 2022年 12月</p>
-                    <p class="description">負責跨部門溝通與專案時程控管，成功帶領 5 人團隊完成核心產品發布。</p>
-                </div>
+            <div class="profile-info">
+                <h1>陳氏賢</h1>
+                <div class="headline">視覺設計師 | 品牌美學顧問 | 電影感影像企劃</div>
+                <div class="location">台灣，台北市</div>
+                <a href="mailto:your-email@example.com" class="btn-contact">聯絡我</a>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-content">
-            <h2>教育背景</h2>
-            
-            <div class="list-item">
-                <div class="logo-placeholder">大學</div>
-                <div class="item-details">
-                    <h3>您的學校名稱</h3>
-                    <p class="company">科系名稱, 學位 (例如：資訊工程學系 學士)</p>
-                    <p class="date">入學年份 – 畢業年份</p>
-                </div>
+        <div class="section-title">關於</div>
+        <div class="content-body">
+            我是陳氏賢。我熱衷於將「韓系簡約美學」與「電影感敘事」結合，為品牌打造具有張力的視覺語言。作為一名追求細節的設計師，我擅長捕捉光影與構圖的黃金比例，並將其應用於平面設計、品牌識別以及專業攝影企劃中。
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title">精選專案</div>
+        <div class="content-body">
+            <div class="item">
+                <div class="item-title">處女座星象與品牌識別開發</div>
+                <div class="item-subtitle">2026 年 1 月 • 個人品牌專案</div>
+                <p>結合處女座對完美的堅持與杯子元素，開發具備高度平衡感的個人視覺系統。</p>
+            </div>
+            <div class="item">
+                <div class="item-title">城市巷弄：電影感視覺敘事</div>
+                <div class="item-subtitle">2025 年 12 月 • 視覺開發</div>
+                <p>運用精確的光影佈局與低角度拍攝技巧，提升空間的視覺層次與情緒氛圍。</p>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-content">
-            <h2>技能</h2>
-            <div class="skill-item">專案管理</div>
-            <div class="skill-item">數據分析</div>
-            <div class="skill-item">跨部門溝通</div>
+        <div class="section-title">專業技能</div>
+        <div class="content-body">
+            <span class="skill-tag">韓系風格美學</span>
+            <span class="skill-tag">電影感構圖與光影</span>
+            <span class="skill-tag">品牌識別系統 (VI)</span>
+            <span class="skill-tag">服裝造型與美感企劃</span>
+            <span class="skill-tag">創意影像提示工程 (Prompt Engineering)</span>
         </div>
     </div>
-
 </div>
 
 </body>
